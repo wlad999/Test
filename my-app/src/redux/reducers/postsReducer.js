@@ -1,10 +1,14 @@
+import { getPostsRequest, getComentsRequest } from "../../api/request";
 let GET_POSTS = "GET_POSTS";
+let SET_POST = "SET_POST";
+let SET_CARRENT_PAGE = "SET_CARRENT_PAGE";
+let SET_COMENTS = "SET_COMENTS";
 
 let initialState = {
   posts: [],
-  pageSize: 5,
-  totalUsersCount: 0,
-  currentPage: 1
+  currentPage: 1,
+  selectedPost: {},
+  coments: []
 };
 
 const potsReducer = (state = initialState, action) => {
@@ -14,40 +18,56 @@ const potsReducer = (state = initialState, action) => {
         ...state,
         posts: action.posts
       };
+    case SET_POST:
+      return {
+        ...state,
+        selectedPost: action.post
+      };
+    case SET_CARRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage
+      };
+    case SET_COMENTS:
+      return {
+        ...state,
+        coments: action.coments
+      };
 
-    //   case UNFOLLOW:
-    //     return {
-    //       ...state,
-    //       users: state.users.map(u => {
-    //         if (u.id === action.userId) {
-    //           return { ...u, followed: false };
-    //         }
-    //         return u;
-    //       }),
-    //     };
-    //   case SET_USERS: {
-    //     return { ...state, users: action.users };
-    //   }
-    //   case SET_CURRENT_PAGE: {
-    //     return { ...state, currentPage: action.currentPage };
-    //   }
-    //   case SET_TOTAL_USERS_COUNT: {
-    //     return { ...state, totalUsersCount: action.count };
-    //   }
-    //   case TOGGLE_IS_FETCHING: {
-    //     return { ...state, isFetching: action.isFetching };
-    //   }
-    //   case TOGGLE_IS_FOLLOWING_PROGRESS: {
-    //     return {
-    //       ...state,
-    //       followingInProgress: action.isFetching
-    //         ? [...state.followingInProgress, action.userId]
-    //         : state.followingInProgress.filter(id => id !== action.userId),
-    //     };
-    //   }
     default:
       return state;
   }
+};
+
+export const getPostsAC = posts => ({
+  type: GET_POSTS,
+  posts
+});
+export const setSelectedPostAC = post => ({
+  type: SET_POST,
+  post
+});
+export const setComentsAC = coments => ({
+  type: SET_COMENTS,
+  coments
+});
+export const currentPageAC = currentPage => ({
+  type: SET_CARRENT_PAGE,
+  currentPage
+});
+export const getPostsThunk = () => {
+  return dispatch => {
+    getPostsRequest().then(response => {
+      dispatch(getPostsAC(response.data));
+    });
+  };
+};
+export const getComentsThunk = id => {
+  return dispatch => {
+    getComentsRequest(id).then(response => {
+      dispatch(setComentsAC(response.data));
+    });
+  };
 };
 
 export default potsReducer;
