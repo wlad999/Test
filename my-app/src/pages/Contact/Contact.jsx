@@ -1,12 +1,24 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import styles from "./Contact.module.css";
 
 const Contact = () => (
-  <div>
+  <div className={styles.wrapper}>
     <Header />
-    <h2>CONTACT</h2>
-    <Footer />
+    <main className={styles.main}>
+      <h2>CONTACT</h2>
+      <p>Vorobkevich St., 33, Chernivtsi, Chernivtsi region 58000, UA</p>
+      <div>
+        <a href="http://zazend.com" target="_blank">
+          http://zazend.com
+        </a>
+      </div>
+      <h3>Are not thinking - go to Chernivtsi right now!</h3>
+    </main>
+    <div className={styles.header}>
+      <Footer />
+    </div>
   </div>
 );
 

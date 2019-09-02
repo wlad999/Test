@@ -7,6 +7,8 @@ const Posts = props => {
   let [currentPage, setCurrentPage] = useState(props.currentPage);
   let [currentArrPosts, {}] = useState([]);
 
+  props.currentPageAC(currentPage);
+
   // useEffect(() => {
   //   setCurrentArrPosts(currentArrPosts);
   // }, [currentArrPosts]);

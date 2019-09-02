@@ -16,15 +16,26 @@ class SelectPost extends React.Component {
   }
 
   render() {
-    console.log("PROPS", this.props.coments);
+    console.log("PROPS", this.props);
     return (
-      <div>
+      <div className={styles.wrapper}>
         <Header />
-        <div>TITLE {this.props.selectedPost.title}</div>
-        <div>USER ID {this.props.selectedPost.userId}</div>
-        {this.props.coments.map(com => (
-          <div className={styles.com}>{com.body}</div>
-        ))}
+        <div className={styles.main}>
+          <h3>TITLE: {this.props.selectedPost.title}</h3>
+          <div>
+            <h3>USER ID: {this.props.selectedPost.userId}</h3>
+          </div>
+          <div>
+            <h3>POST: {this.props.selectedPost.body}</h3>
+          </div>
+          <div>COMENTS:</div>
+          {this.props.coments.map(com => (
+            <div>
+              <div>NAME: {com.name}</div>
+              <div className={styles.com}>{com.body}</div>
+            </div>
+          ))}
+        </div>
         <Footer />
       </div>
     );

@@ -1,0 +1,37 @@
+/* * {
+    outline: 2px solid red
+} */
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    width: 100%;
+    text-align: start;
+    margin: 0;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+.header {
+    flex: 0 0 auto;
+}
+
+.about {
+    margin: auto;
+    background-image: no-repeat;
+    background-image: url(../../zzz.jpg);
+    background-size: cover;
+    /* background-image: url(../../zzz.jpg); */
+    /* background-image: cover; */
+    /* background-color: yellow; */
+    background-size: cover;
+    width: auto;
+    height: 200px;
+}

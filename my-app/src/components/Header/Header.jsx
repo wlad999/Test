@@ -1,11 +1,21 @@
 import React from "react";
+import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
+import logo from "../../logo.svg";
 const Header = () => (
-  <div>
-    <span>Header</span>
-    <NavLink to={"/"}>Posts</NavLink>
-    <NavLink to={"/about"}>About</NavLink>
-    <NavLink to={"/contact"}>Contact</NavLink>
+  <div className={styles.wrapper}>
+    <img className={styles.logo} src={logo} alt="Logo" />
+    <span className={styles.nav}>
+      <NavLink className={styles.link} to={"/"}>
+        Posts
+      </NavLink>
+      <NavLink className={styles.link} to={"/about"}>
+        About
+      </NavLink>
+      <NavLink className={styles.link} to={"/contact"}>
+        Contact
+      </NavLink>
+    </span>
   </div>
 );
 export default Header;

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
+import styles from "./Posts.module.css";
 import Posts from "./Posts";
 import {
   getPostsThunk,
@@ -15,15 +16,17 @@ class PostsContainer extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Header />
-        <Posts
-          posts={this.props.posts}
-          currentPage={this.props.currentPage}
-          setSelectedPostAC={this.props.setSelectedPostAC}
-          // currentPageAC={this.props.currentPageAC}
-        />
-        <Footer />
+      <div className={styles.wrapper}>
+        <Header className={styles.header} />
+        <div className={styles.main}>
+          <Posts
+            posts={this.props.posts}
+            currentPage={this.props.currentPage}
+            setSelectedPostAC={this.props.setSelectedPostAC}
+            currentPageAC={this.props.currentPageAC}
+          />
+        </div>
+        <Footer className={styles.footer} />
       </div>
     );
   }
