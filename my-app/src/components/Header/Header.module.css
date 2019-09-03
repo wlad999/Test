@@ -30,3 +30,6 @@
 /* .link :hover :target {
   color: red;
 } */
+a:active {
+  color: #f00;
+}

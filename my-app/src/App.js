@@ -1,5 +1,4 @@
 import React from "react";
-// import logo from "./logo.svg";
 import "./App.css";
 import PostsContainer from "./pages/Posts/PostsContainer";
 import Contact from "./pages/Contact/Contact";

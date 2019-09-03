@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import { NavLink } from "react-router-dom";
-import logo from "../../logo.svg";
 const Footer = () => (
   <div className={styles.wrapper}>
     <span className={styles.nav}>

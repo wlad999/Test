@@ -14,7 +14,7 @@ const Contact = () => (
           http://zazend.com
         </a>
       </div>
-      <h3>Are not thinking - go to Chernivtsi right now!</h3>
+      <h3>Don`t thinking - go to Chernivtsi right now!</h3>
     </main>
     <div className={styles.header}>
       <Footer />
